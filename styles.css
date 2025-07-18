@@ -1,0 +1,249 @@
+/* Fondo general */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  background: #fffafc;
+  color: #333;
+  transition: background-image 1s ease-in-out;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Overlay para suavizar el fondo rotativo */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 250, 252, 0.4);
+  pointer-events: none;
+  z-index: 0;
+}
+
+header, section, footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* Logo con Kuromi */
+.logo-contenedor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8em;
+  flex-wrap: wrap;
+}
+
+.kuromi-logo {
+  width: 200px;
+  height: auto;
+  max-height: 200px;
+}
+
+/* Encabezado */
+header {
+  background: #f9cce8;
+  color: black;
+  text-align: center;
+  padding: 2em;
+}
+
+/* Secciones principales */
+.catalogo, .turnos, .servicios {
+  padding: 2em;
+}
+
+h2 {
+  color: #000000;
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+/* Galería del catálogo centrada */
+.galeria {
+  display: flex;
+  gap: 1.5em;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Tarjetas glamorosas */
+.card {
+  border: 1px solid #d63384;
+  padding: 1.2em;
+  background: rgba(255, 250, 252, 0.8);
+  border-radius: 12px;
+  text-align: center;
+  width: 250px;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.card p {
+  font-size: 1.1em;
+  color: #d63384;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Modal para imágenes del catálogo */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(20, 0, 20, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal img {
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(255, 200, 220, 0.6);
+}
+
+.cerrar {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 2em;
+  color: #fff;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Listas */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background: #ffe6f0;
+  margin: 0.5em 0;
+  padding: 1em;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+li:hover {
+  background: #ffd8e8;
+}
+
+/* Tabla (si la usás en algún servicio) */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #f0c4dc;
+  padding: 0.8em;
+  text-align: center;
+}
+
+/* Footer glam */
+footer {
+  text-align: center;
+  padding: 2em;
+  background: #f9cce8;
+  margin-top: 3em;
+  color: black;
+}
+
+/* Botón flotante de WhatsApp */
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 2;
+  width: 60px;
+  height: 60px;
+  background-color: #25d366;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: transform 0.3s;
+}
+
+.whatsapp img {
+  width: 30px;
+  height: 30px;
+}
+
+.whatsapp:hover {
+  transform: scale(1.1);
+}
+.turnos {
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* Botón de calendario */
+#mostrarCalendario {
+background: #ff99cc;
+color: white;
+border: none;
+padding: 1em 1.5em;
+border-radius: 8px;
+font-size: 1em;
+cursor: pointer;
+transition: background 0.3s;
+
+
+}
+.calendario {
+  width: 100%;
+  max-width: 800px;
+}
+#mostrarCalendario:hover {
+  background: #ff77bb;
+}
+
+/* Responsive móviles */
+@media (max-width: 600px) {
+  body {
+    background-position: center;
+  }
+
+  .whatsapp {
+    width: 50px;
+    height: 50px;
+    bottom: 15px;
+    right: 15px;
+  }
+
+  .whatsapp img {
+    width: 28px;
+    height: 28px;
+  }
+
+  .kuromi-logo {
+    width: 60px;
+    max-height: 60px;
+  }
+
+  .card {
+    width: 100%;
+  }
+}
