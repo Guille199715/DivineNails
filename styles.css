@@ -1,53 +1,89 @@
-/* Fondo general */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* Animaciones */
+@keyframes floatLogo {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInModal {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Reset y fondo general */
 body {
-  transition: background-image 1.5s ease-in-out;
-  font-family: 'Segoe UI', sans-serif;
   margin: 0;
+  font-family: 'Segoe UI', sans-serif;
   background: #fffafc;
   color: #333;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  transition: background-image 1.5s ease-in-out;
 }
 
 /* Overlay para suavizar el fondo rotativo */
 .overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
   background: rgba(255, 250, 252, 0.4);
   pointer-events: none;
   z-index: 0;
 }
 
+/* Contenedores con z-index para que estén encima del overlay */
 header, section, footer {
   position: relative;
   z-index: 1;
 }
 
-/* Logo con Kuromi */
-.logo-contenedor {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.8em;
-  flex-wrap: wrap;
-}
-
-.kuromi-logo {
-  width: 200px;
-  height: auto;
-  max-height: 200px;
-}
-
-/* Encabezado */
+/* Header */
 header {
   background: #f9cce8;
-  color: black;
+  color: #222;
   text-align: center;
-  padding: 2em;
+  padding: 2.5em 1em;
+  font-family: 'Poppins', sans-serif;
+  border-bottom: 2px solid #e3a4c3;
+}
+
+.logo-contenedor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5em;
+}
+
+/* Logo */
+.kuromi-logo {
+  width: 140px;
+  height: auto;
+  animation: floatLogo 3s ease-in-out infinite;
+}
+
+/* Título y subtítulo */
+.fade-in-title {
+  margin: 0;
+  font-size: 2.2em;
+  letter-spacing: 0.5px;
+  font-family: 'Pacifico', cursive;
+  animation: fadeIn 1.5s ease-out;
+}
+
+.subtitulo {
+  margin-top: 0.3em;
+  font-size: 1.1em;
+  color: #555;
+  font-family: 'Pacifico', cursive;
 }
 
 /* Secciones principales */
@@ -55,13 +91,22 @@ header {
   padding: 2em;
 }
 
+/* Títulos h2 */
 h2 {
-  color: #000000;
-  margin-bottom: 1em;
+  color: #fff;
+  background: linear-gradient(135deg, #ff99cc, #ff66b2);
+  padding: 0.5em 1em;
+  border-radius: 12px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
   text-align: center;
+  display: block;
+  margin: 0 auto 1em;
+  max-width: fit-content;
 }
 
-/* Galería del catálogo centrada */
+/* Galería */
 .galeria {
   display: flex;
   gap: 1.5em;
@@ -69,7 +114,7 @@ h2 {
   justify-content: center;
 }
 
-/* Tarjetas glamorosas */
+/* Tarjetas */
 .card {
   border: 1px solid #d63384;
   padding: 1.2em;
@@ -91,19 +136,17 @@ h2 {
   margin: 0;
 }
 
-/* Modal para imágenes del catálogo */
+/* Modal imagen */
 .modal {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
   background: rgba(20, 0, 20, 0.8);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 999;
-  animation: fadeIn 0.3s ease-in-out;
+  animation: fadeInModal 0.3s ease-in-out;
 }
 
 .modal img {
@@ -115,17 +158,16 @@ h2 {
 
 .cerrar {
   position: absolute;
-  top: 20px;
-  right: 30px;
+  top: 20px; right: 30px;
   font-size: 2em;
   color: #fff;
   cursor: pointer;
   z-index: 1000;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
+/* Fade-in título animación */
+.fade-in-title {
+  animation: fadeIn 1.5s ease-out;
 }
 
 /* Listas */
@@ -159,13 +201,22 @@ th, td {
   text-align: center;
 }
 
-/* Footer glam */
-footer {
-  text-align: center;
-  padding: 2em;
+/* Footer */
+.footer {
   background: #f9cce8;
-  margin-top: 3em;
-  color: black;
+  color: #222;
+  text-align: center;
+  padding: 1.5em 1em;
+  font-family: 'Poppins', sans-serif;
+  border-top: 2px solid #e3a4c3;
+  box-shadow: inset 0 3px 6px rgba(255, 255, 255, 0.5);
+  font-weight: 600;
+  font-size: 1em;
+}
+
+.footer p {
+  margin: 0;
+  letter-spacing: 0.5px;
 }
 
 /* Botones sociales en columna */
@@ -208,7 +259,7 @@ footer {
   align-items: center;
 }
 
-/* Botón de calendario */
+/* Botón calendario */
 #mostrarCalendario {
   background: #ff99cc;
   color: white;
@@ -229,10 +280,10 @@ footer {
   background: #ff77bb;
 }
 
-/* Responsive móviles */
+/* Responsive */
 @media (max-width: 600px) {
   .kuromi-logo {
-    width: 60px;
+    
   }
 
   .card {
