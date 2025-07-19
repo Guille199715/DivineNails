@@ -3,48 +3,57 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Reservá tu turno y descubrí los diseños más lindos en uñas: Soft Gel, Kapping, Acrílicas y más en Divine Nails">
+  <meta property="og:title" content="Divine Nails" />
+  <meta property="og:description" content="Elegí tu estilo, reservá tu turno, lucí tus uñas." />
+  <meta property="og:image" content="images/kuromi.jpg" />
+  <link rel="icon" href="images/kuromi.jpg" type="image/x-icon">
   <title>Divine Nails</title>
   <link rel="stylesheet" href="styles.css" />
   <script src="scripts.js" defer></script>
 </head>
 <body>
-  <!-- Overlay que suaviza el fondo -->
   <div class="overlay"></div>
 
-  <!-- Botón flotante WhatsApp -->
-  <a href="https://wa.me/543412735681?text=Hola!%20Quiero%20reservar%20un%20turno%20en%20Divine%20Nails" class="whatsapp" target="_blank" aria-label="Reservar por WhatsApp">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
-  </a>
+  <!-- Redes sociales -->
+  <div class="social-buttons">
+    <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
+      <img src="images/icons/instagram.jpg" alt="Instagram">
+    </a>
+    <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">
+      <img src="images/icons/facebook.jpg" alt="Facebook">
+    </a>
+    <a href="https://wa.me/543412735681?text=Hola!%20Quiero%20reservar%20un%20turno%20en%20Divine%20Nails" target="_blank" class="whatsapp" aria-label="WhatsApp">
+      <img src="images/icons/whatsapp.jpg" alt="WhatsApp" />
+    </a>
+  </div>
 
-  <!-- Encabezado -->
-  <header>
-    <div class="logo-contenedor">
-      <img src="images/kuromi.jpg" alt="Kuromi" class="kuromi-logo" />
-      <h1>Divine Nails</h1>
-    </div>
-    <p>Elegí tu estilo, reservá tu turno, lucí tus uñas</p>
-  </header>
+ <header style="background: #f9cce8; color: #222; text-align: center; padding: 2.5em 1em; font-family: 'Poppins', sans-serif; border-bottom: 2px solid #e3a4c3;">
+  <div class="logo-contenedor" style="flex-direction: column; gap: 0.5em;">
+    <img src="images/kuromi.jpg" alt="Logo Kuromi" class="kuromi-logo" style="width: 140px; height: auto;">
+    <h1 style="margin: 0; font-size: 2.2em; letter-spacing: 0.5px;">Divine Nails</h1>
+    <p style="margin-top: 0.3em; font-size: 1.1em; color: #555;">Estilo, detalle y amor en cada diseño</p>
+  </div>
+</header>
 
-  <!-- Catálogo -->
   <section class="catalogo">
     <h2>Catálogo de Diseños</h2>
     <div class="galeria">
-      <div class="card" onclick="mostrarImagen(this, 'images/catalogo/SG.jpg')">
+      <div class="card" onclick="mostrarImagen(this, 'images/catalogo/SG.jpg', 'Diseño Soft Gel')">
         <p>✨ Soft Gel ✨</p>
       </div>
-      <div class="card" onclick="mostrarImagen(this, 'images/catalogo/KP.jpg')">
+      <div class="card" onclick="mostrarImagen(this, 'images/catalogo/KP.jpg', 'Diseño Kapping')">
         <p>🌸 Kapping 🌸</p>
       </div>
-      <div class="card" onclick="mostrarImagen(this, 'images/catalogo/SM.jpg')">
+      <div class="card" onclick="mostrarImagen(this, 'images/catalogo/SM.jpg', 'Diseño Semipermanente')">
         <p>💖 Semipermanente 💖</p>
       </div>
-      <div class="card" onclick="mostrarImagen(this, 'images/catalogo/AC.jpg')">
+      <div class="card" onclick="mostrarImagen(this, 'images/catalogo/AC.jpg', 'Diseño Esculpidas en Acrílico')">
         <p>💎 Esculpidas en Acrílico 💎</p>
       </div>
     </div>
   </section>
 
-  <!-- Calendario de turnos -->
   <section class="turnos">
     <h2>Agenda de Turnos</h2>
     <button id="mostrarCalendario">Ver disponibilidad 📅</button>
@@ -58,16 +67,22 @@
     </div>
   </section>
 
-  <!-- Modal para imagen -->
+  <!-- Modal de imagen -->
   <div id="modalImagen" class="modal" style="display: none;">
     <span onclick="cerrarModal()" class="cerrar">✖</span>
     <img id="imagenModal" src="" alt="Diseño" />
   </div>
 
-  <!-- Footer -->
+  <!-- Modal de reserva -->
+  <div id="reservaModal" class="modal" style="display: none;">
+    <span onclick="cerrarReserva()" class="cerrar">✖</span>
+    <div class="contenido">
+      <p id="mensajeReserva"></p>
+    </div>
+  </div>
+
   <footer>
     <p>📍 Alvear, Santa Fe | 📞 341-273-5681 | 💌 divine.nails@gmail.com</p>
-    <p>Seguinos en <a href="#">Instagram</a> y <a href="#">Facebook</a></p>
   </footer>
 </body>
 </html>
