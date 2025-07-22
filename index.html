@@ -2,12 +2,12 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Reservá tu turno y descubrí los diseños más lindos en uñas: Soft Gel, Kapping, Acrílicas y más en Divine Nails">
   <meta property="og:title" content="Divine Nails" />
   <meta property="og:description" content="Elegí tu estilo, reservá tu turno, lucí tus uñas." />
   <meta property="og:image" content="images/kuromi.jpg" />
-  <link rel="icon" href="images/kuromi.jpg" type="image/x-icon">
+  <link rel="icon" href="images/kuromi.jpg" type="image/x-icon" />
   <title>Divine Nails</title>
   <link rel="stylesheet" href="styles.css" />
   <script src="scripts.js" defer></script>
@@ -18,38 +18,37 @@
   <!-- Redes sociales -->
   <div class="social-buttons">
     <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
-      <img src="images/icons/instagram.jpg" alt="Instagram">
+      <img src="images/icons/instagram.jpg" alt="Instagram" />
     </a>
     <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">
-      <img src="images/icons/facebook.jpg" alt="Facebook">
+      <img src="images/icons/facebook.jpg" alt="Facebook" />
     </a>
     <a href="https://wa.me/543412735681?text=Hola Divine Nails!%0AMe gustaría agendar un turno.%0A¿Puedo elegir algún diseño del catálogo?%0AGracias! Quedo atenta/o a su respuesta." target="_blank" class="whatsapp" aria-label="WhatsApp">
       <img src="images/icons/whatsapp.jpg" alt="WhatsApp" />
     </a>
   </div>
 
- <header>
-  <div class="logo-contenedor">
-    <img src="images/kuromi.jpg" alt="Logo Kuromi" class="kuromi-logo animated-logo">
-    <h1 class="fade-in-title">Divine Nails</h1>
-    <p class="subtitulo">Estilo, detalle y amor en cada diseño</p>
-  </div>
-</header>
-
+  <header>
+    <div class="logo-contenedor">
+      <img src="images/kuromi.jpg" alt="Logo Kuromi" class="kuromi-logo animated-logo" />
+      <h1 class="fade-in-title">Divine Nails</h1>
+      <p class="subtitulo">Estilo, detalle y amor en cada diseño</p>
+    </div>
+  </header>
 
   <section class="catalogo">
     <h2>Catálogo de Diseños</h2>
     <div class="galeria">
-      <div class="card" onclick="mostrarImagen(this, 'images/catalogo/SG.jpg', 'Diseño Soft Gel')">
+      <div class="card" onclick='mostrarImagenCarpeta("images/catalogo/softgel", 30, "Diseño Soft Gel")'>
         <p>✨ Soft Gel ✨</p>
       </div>
-      <div class="card" onclick="mostrarImagen(this, 'images/catalogo/KP.jpg', 'Diseño Kapping')">
+      <div class="card" onclick='mostrarImagenCarpeta("images/catalogo/kapping", 4, "Diseño Kapping")'>
         <p>🌸 Kapping 🌸</p>
       </div>
-      <div class="card" onclick="mostrarImagen(this, 'images/catalogo/SM.jpg', 'Diseño Semipermanente')">
+      <div class="card" onclick='mostrarImagenCarpeta("images/catalogo/semipermanente", 3, "Diseño Semipermanente")'>
         <p>💖 Semipermanente 💖</p>
       </div>
-      <div class="card" onclick="mostrarImagen(this, 'images/catalogo/AC.jpg', 'Diseño Esculpidas en Acrílico')">
+      <div class="card" onclick='mostrarImagenCarpeta("images/catalogo/acrilico", 7, "Diseño Esculpidas en Acrílico")'>
         <p>💎 Esculpidas en Acrílico 💎</p>
       </div>
     </div>
@@ -59,19 +58,23 @@
     <h2>Agenda de Turnos</h2>
     <button id="mostrarCalendario">Ver disponibilidad 📅</button>
     <div id="calendarioContenedor" class="calendario" style="display: none;">
-      <iframe 
+      <iframe
         src="https://calendar.google.com/calendar/embed?src=60f981109f0d6cba0d8c461df1d43ae2ec0287e00ec9bc3e4e36fdd4ed0fb7b6%40group.calendar.google.com&ctz=America%2FArgentina%2FCordoba"
-        style="border: 0; width: 100%; height: 400px;" 
-        frameborder="0" 
+        style="border: 0; width: 100%; height: 400px;"
+        frameborder="0"
         scrolling="no">
       </iframe>
     </div>
   </section>
 
-  <!-- Modal de imagen -->
-  <div id="modalImagen" class="modal" style="display: none;">
+  <!-- Modal de imagen con carrusel -->
+  <div id="modalImagen" class="modal">
     <span onclick="cerrarModal()" class="cerrar">✖</span>
-    <img id="imagenModal" src="" alt="Diseño" />
+    <div class="modal-contenido">
+      <img id="imagenModal" src="" alt="Diseño" />
+      <p id="descripcionImagen" style="color: white; margin-top: 0.5em; font-weight: 600;"></p>
+      <div id="carrusel" class="carrusel"></div>
+    </div>
   </div>
 
   <!-- Modal de reserva -->
@@ -83,8 +86,7 @@
   </div>
 
   <footer class="footer">
-  <p>📍 Alvear, Santa Fe | 📞 341-273-5681 | 💌 divine.nails@gmail.com</p>
-</footer>
-
+    <p>📍 Alvear, Santa Fe | 📞 341-273-5681 | 💌 divine.nails@gmail.com</p>
+  </footer>
 </body>
 </html>
