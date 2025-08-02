@@ -178,13 +178,28 @@ h2 {
   overflow: hidden;
 }
 
-#imagenModal {
-  max-width: 90vw;
-  max-height: 70vh;
+.imagen-wrapper {
+  background-color: rgba(255, 255, 255, 0.25); /* semi-transparente */
+  backdrop-filter: blur(12px);                /* difuminado suave */
+  -webkit-backdrop-filter: blur(12px);        /* para Safari */
   border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(255, 200, 220, 0.6);
-  object-fit: contain;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;                        /* o ajustá según tus imágenes */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+#imagenModal {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  border-radius: 0; /* ya está dentro del wrapper con border-radius */
+  box-shadow: none; /* no lo necesita, el contenedor lo da */
+}
+
 
 .carrusel {
   display: flex;
