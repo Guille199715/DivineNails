@@ -15,15 +15,12 @@
 <body>
   <div class="overlay"></div>
 
-  <!-- Redes sociales -->
+  <!-- Botones sociales -->
   <div class="social-buttons">
-    <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
+    <a id="btnInstagram" href="https://www.instagram.com/divine_nails.luli" target="_blank" aria-label="Instagram">
       <img src="images/icons/instagram.jpg" alt="Instagram" />
     </a>
-    <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">
-      <img src="images/icons/facebook.jpg" alt="Facebook" />
-    </a>
-    <a href="https://wa.me/543412735681?text=Hola Divine Nails!%0AMe gustaría agendar un turno.%0A¿Puedo elegir algún diseño del catálogo?%0AGracias! Quedo atenta/o a su respuesta." target="_blank" class="whatsapp" aria-label="WhatsApp">
+    <a href="https://wa.me/543412735681?text=Hola Divine Nails! Me gustaría agendar un turno." target="_blank" aria-label="WhatsApp">
       <img src="images/icons/whatsapp.jpg" alt="WhatsApp" />
     </a>
   </div>
@@ -36,58 +33,53 @@
     </div>
   </header>
 
-  <section class="catalogo">
-    <h2>Catálogo de Diseños</h2>
-    <div class="galeria">
-      <div class="card" onclick='mostrarImagenCarpeta("images/catalogo/softgel", 30, "Diseño Soft Gel")'>
-        <p>✨ Soft Gel ✨</p>
+  <main>
+    <section class="catalogo">
+      <h2>Catálogo de Diseños</h2>
+      <div class="galeria">
+        <div class="card" tabindex="0" onclick='mostrarImagenCarpeta("images/catalogo/softgel", 30, "Diseño Soft Gel")'>
+          <p>✨ Soft Gel ✨</p>
+        </div>
+        <div class="card" tabindex="0" onclick='mostrarImagenCarpeta("images/catalogo/kapping", 4, "Diseño Kapping")'>
+          <p>🌸 Kapping 🌸</p>
+        </div>
+        <div class="card" tabindex="0" onclick='mostrarImagenCarpeta("images/catalogo/semipermanente", 3, "Diseño Semipermanente")'>
+          <p>💖 Semipermanente 💖</p>
+        </div>
+        <div class="card" tabindex="0" onclick='mostrarImagenCarpeta("images/catalogo/acrilico", 7, "Diseño Esculpidas en Acrílico")'>
+          <p>💎 Esculpidas en Acrílico 💎</p>
+        </div>
       </div>
-      <div class="card" onclick='mostrarImagenCarpeta("images/catalogo/kapping", 4, "Diseño Kapping")'>
-        <p>🌸 Kapping 🌸</p>
-      </div>
-      <div class="card" onclick='mostrarImagenCarpeta("images/catalogo/semipermanente", 3, "Diseño Semipermanente")'>
-        <p>💖 Semipermanente 💖</p>
-      </div>
-      <div class="card" onclick='mostrarImagenCarpeta("images/catalogo/acrilico", 7, "Diseño Esculpidas en Acrílico")'>
-        <p>💎 Esculpidas en Acrílico 💎</p>
-      </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <section class="turnos">
-    <h2>Agenda de Turnos</h2>
-    <button id="mostrarCalendario">Ver disponibilidad 📅</button>
-    <div id="calendarioContenedor" class="calendario" style="display: none;">
-      <iframe
-        src="https://calendar.google.com/calendar/embed?src=60f981109f0d6cba0d8c461df1d43ae2ec0287e00ec9bc3e4e36fdd4ed0fb7b6%40group.calendar.google.com&ctz=America%2FArgentina%2FCordoba"
-        style="border: 0; width: 100%; height: 400px;"
-        frameborder="0"
-        scrolling="no">
-      </iframe>
-    </div>
-  </section>
-
-  <!-- Modal de imagen con carrusel -->
-  <div id="modalImagen" class="modal">
+  <!-- Modal imagen con carrusel -->
+  <div id="modalImagen" class="modal" role="dialog" aria-label="Diseño de uñas">
     <span onclick="cerrarModal()" class="cerrar">✖</span>
     <div class="modal-contenido">
       <div class="imagen-wrapper">
         <img id="imagenModal" src="" alt="Diseño" />
       </div>
-      <p id="descripcionImagen" style="color: white; margin-top: 0.5em; font-weight: 600;"></p>
+      <p id="descripcionImagen"></p>
       <div id="carrusel" class="carrusel"></div>
     </div>
   </div>
 
   <!-- Modal de reserva -->
-  <div id="reservaModal" class="modal" style="display: none;">
+  <div id="reservaModal" class="modal" role="dialog" aria-label="Reserva confirmada">
     <span onclick="cerrarReserva()" class="cerrar">✖</span>
     <div class="contenido">
       <p id="mensajeReserva"></p>
     </div>
   </div>
 
-  <footer class="footer">
+  <!-- Mensaje flotante Instagram -->
+  <div id="mensajeIG" class="mensaje-ig">
+  <span id="cerrarMensajeIG" class="cerrar-ig">✖</span>
+  Tocá el botón y mandanos un mensaje por Instagram o WhatsApp. ¡Luli te responde al toque! 💅
+</div>
+
+<footer class="footer">
     <p>📍 Alvear, Santa Fe | 📞 341-273-5681 | 💌 divine.nails@gmail.com</p>
   </footer>
 </body>

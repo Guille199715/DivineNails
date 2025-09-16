@@ -19,15 +19,19 @@
 }
 
 /* Reset y fondo general */
-body {
+html, body {
   margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   font-family: 'Segoe UI', sans-serif;
   color: #333;
   background: none;
   overflow-x: hidden;
 }
 
-/* Fondo dinámico adaptado a pantalla */
+/* Fondo dinámico */
 body::before {
   content: "";
   position: fixed;
@@ -52,10 +56,18 @@ body::before {
   z-index: 0;
 }
 
-/* Contenedores con z-index para que estén encima del overlay */
-header, section, footer {
+/* Contenedores */
+header, section {
   position: relative;
   z-index: 1;
+  flex: 0 0 auto;
+}
+
+footer {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+  margin-top: auto;
 }
 
 /* Header */
@@ -75,14 +87,12 @@ header {
   gap: 0.5em;
 }
 
-/* Logo */
 .kuromi-logo {
   width: 140px;
   height: auto;
   animation: floatLogo 3s ease-in-out infinite;
 }
 
-/* Título y subtítulo */
 .fade-in-title {
   margin: 0;
   font-size: 2.2em;
@@ -98,12 +108,14 @@ header {
   font-family: 'Pacifico', cursive;
 }
 
-/* Secciones principales */
-.catalogo, .turnos, .servicios {
+/* Secciones */
+.catalogo, .servicios {
   padding: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* Títulos h2 */
 h2 {
   color: #fff;
   background: linear-gradient(135deg, #ff99cc, #ff66b2);
@@ -126,7 +138,6 @@ h2 {
   justify-content: center;
 }
 
-/* Tarjetas */
 .card {
   border: 1px solid #d63384;
   padding: 1.2em;
@@ -149,7 +160,6 @@ h2 {
 }
 
 /* Modal imagen con carrusel */
-
 .modal {
   position: fixed;
   top: 0; left: 0;
@@ -179,12 +189,12 @@ h2 {
 }
 
 .imagen-wrapper {
-  background-color: rgba(255, 255, 255, 0.25); /* semi-transparente */
-  backdrop-filter: blur(12px);                /* difuminado suave */
-  -webkit-backdrop-filter: blur(12px);        /* para Safari */
+  background-color: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-radius: 12px;
   overflow: hidden;
-  aspect-ratio: 3 / 4;                        /* o ajustá según tus imágenes */
+  aspect-ratio: 3 / 4;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   display: flex;
   justify-content: center;
@@ -196,10 +206,9 @@ h2 {
   height: 100%;
   object-fit: contain;
   display: block;
-  border-radius: 0; /* ya está dentro del wrapper con border-radius */
-  box-shadow: none; /* no lo necesita, el contenedor lo da */
+  border-radius: 0;
+  box-shadow: none;
 }
-
 
 .carrusel {
   display: flex;
@@ -229,7 +238,6 @@ h2 {
   border-color: #ff99cc;
 }
 
-/* Cerrar botón */
 .cerrar {
   position: absolute;
   top: 20px; right: 30px;
@@ -238,42 +246,6 @@ h2 {
   cursor: pointer;
   z-index: 1000;
   user-select: none;
-}
-
-/* Fade-in título animación */
-.fade-in-title {
-  animation: fadeIn 1.5s ease-out;
-}
-
-/* Listas */
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-li {
-  background: #ffe6f0;
-  margin: 0.5em 0;
-  padding: 1em;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-li:hover {
-  background: #ffd8e8;
-}
-
-/* Tabla */
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-th, td {
-  border: 1px solid #f0c4dc;
-  padding: 0.8em;
-  text-align: center;
 }
 
 /* Footer */
@@ -287,6 +259,7 @@ th, td {
   box-shadow: inset 0 3px 6px rgba(255, 255, 255, 0.5);
   font-weight: 600;
   font-size: 1em;
+  margin-top: auto;
 }
 
 .footer p {
@@ -294,7 +267,7 @@ th, td {
   letter-spacing: 0.5px;
 }
 
-/* Botones sociales en columna */
+/* Botones sociales */
 .social-buttons {
   position: fixed;
   bottom: 20px;
@@ -326,36 +299,7 @@ th, td {
   transform: scale(1.1);
 }
 
-/* Sección turnos */
-.turnos {
-  padding: 2em;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* Botón calendario */
-#mostrarCalendario {
-  background: #ff99cc;
-  color: white;
-  border: none;
-  padding: 1em 1.5em;
-  border-radius: 8px;
-  font-size: 1em;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.calendario {
-  width: 100%;
-  max-width: 800px;
-}
-
-#mostrarCalendario:hover {
-  background: #ff77bb;
-}
-
-/* Responsive */
+/* Responsive móvil */
 @media (max-width: 600px) {
   .card {
     width: 100%;
@@ -366,4 +310,89 @@ th, td {
     width: 50px;
     height: 50px;
   }
+}
+
+/* Carrusel Desktop */
+@media (min-width: 601px) {
+  .modal-contenido {
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .imagen-wrapper {
+    max-height: 60vh;
+    width: auto;
+  }
+
+  #imagenModal {
+    max-height: 100%;
+    width: 50;
+  }
+
+  .carrusel {
+    max-width: 90%;
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+  }
+
+  .miniatura {
+    width: 50px;
+    height: 50px;
+    flex: 0 0 auto;
+  }
+}
+.mensaje-ig {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%) scale(0.95);
+  background: linear-gradient(90deg, #ff69b4, #ff85c1);
+  color: white;
+  padding: 18px 32px;
+  font-size: 1.05rem;
+  font-weight: 500;
+  text-align: center;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  border-radius: 20px;
+  width: calc(100% - 80px); /* margen lateral de 40px a cada lado */
+  max-width: 900px; /* límite para pantallas grandes */
+}
+
+.mensaje-ig.visible {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+  animation: slideDown 0.6s ease;
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateX(-50%) scale(0.8) translateY(-20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(-50%) scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+.cerrar-ig {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 1.3rem;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+
+.cerrar-ig:hover {
+  transform: scale(1.2);
 }
