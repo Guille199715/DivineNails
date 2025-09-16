@@ -14,7 +14,7 @@ function cerrarReserva() {
 }
 
 // Fondo dinámico
-const totalFondos = 40;
+const totalFondos = 22;
 let actual = 1;
 let fondoActual = `images/backgrounds/bg${actual}.jpg`;
 const fondoLayer = document.createElement('style');
