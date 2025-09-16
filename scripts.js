@@ -106,14 +106,30 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
+// Cierre al tocar fuera del contenido del modal
+document.getElementById("modalImagen").addEventListener("click", (e) => {
+  if (e.target === e.currentTarget) {
+    cerrarModal();
+  }
+});
+
 // Mensaje flotante fijo con botón de cierre
 window.addEventListener("DOMContentLoaded", () => {
   const mensaje = document.getElementById("mensajeIG");
-  const cerrar = document.getElementById("cerrarMensajeIG");
+  const cerrarIG = document.getElementById("cerrarMensajeIG");
+  const cerrarModalBtn = document.getElementById("cerrarModalImagen");
 
   mensaje.classList.add("visible");
 
-  cerrar.addEventListener("click", cerrarMensajeIG);
+  if (cerrarIG) {
+    cerrarIG.addEventListener("click", cerrarMensajeIG);
+    cerrarIG.addEventListener("touchstart", cerrarMensajeIG);
+  }
+
+  if (cerrarModalBtn) {
+    cerrarModalBtn.addEventListener("click", cerrarModal);
+    cerrarModalBtn.addEventListener("touchstart", cerrarModal);
+  }
 });
 
 function cerrarMensajeIG() {
