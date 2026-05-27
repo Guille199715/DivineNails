@@ -3,85 +3,203 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Reservá tu turno y descubrí los diseños más lindos en uñas: Soft Gel, Kapping, Acrílicas y más en Divine Nails">
+  <meta name="description" content="Divine Nails en Alvear, Santa Fe. Manicuria, soft gel, kapping, semipermanente y esculpidas con reserva por WhatsApp." />
   <meta property="og:title" content="Divine Nails" />
-  <meta property="og:description" content="Elegí tu estilo, reservá tu turno, lucí tus uñas." />
-  <meta property="og:image" content="images/kuromi.jpg" />
+  <meta property="og:description" content="Dise&ntilde;os prolijos, delicados y personalizados para tus u&ntilde;as." />
+  <meta property="og:image" content="images/catalogo/softgel/img8.jpg" />
   <link rel="icon" href="images/kuromi.jpg" type="image/x-icon" />
-  <title>Divine Nails</title>
+  <title>Divine Nails | Manicuria en Alvear</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <script src="scripts.js" defer></script>
 </head>
 <body>
-  <div class="overlay"></div>
+  <a class="skip-link" href="#trabajos">Saltar al contenido</a>
 
-  <!-- Botones sociales -->
-  <div class="social-buttons">
-    <a id="btnInstagram" href="https://www.instagram.com/divine_nails.luli" target="_blank" aria-label="Instagram">
-      <img src="images/icons/instagram.jpg" alt="Instagram" />
+  <header class="site-header" aria-label="Navegaci&oacute;n principal">
+    <a class="brand" href="#inicio" aria-label="Divine Nails inicio">
+      <img src="images/kuromi.jpg" alt="" class="brand-mark" />
+      <span>Divine Nails</span>
     </a>
-    <a href="https://wa.me/543412735681?text=Hola Divine Nails! Me gustaría agendar un turno." target="_blank" aria-label="WhatsApp">
-      <img src="images/icons/whatsapp.jpg" alt="WhatsApp" />
+    <nav class="nav-links" aria-label="Secciones">
+      <a href="#servicios">Servicios</a>
+      <a href="#trabajos">Trabajos</a>
+      <a href="#turnos">Turnos</a>
+    </nav>
+    <a class="header-action" href="https://wa.me/543412735681?text=Hola%20Divine%20Nails!%20Quiero%20reservar%20un%20turno." target="_blank" rel="noopener">
+      Reservar
     </a>
-  </div>
-
-  <header>
-    <div class="logo-contenedor">
-      <img src="images/kuromi.jpg" alt="Logo Kuromi" class="kuromi-logo animated-logo" />
-      <h1 class="fade-in-title">Divine Nails</h1>
-      <p class="subtitulo">Estilo, detalle y amor en cada diseño</p>
-    </div>
   </header>
 
-  <main>
-    <section class="catalogo">
-      <h2>Catálogo de Diseños</h2>
-      <div class="galeria">
-        <div class="card" tabindex="0" onclick='mostrarImagenCarpeta("images/catalogo/softgel", 19, "Diseño Soft Gel")'>
-          <p>✨ Soft Gel ✨</p>
+  <main id="inicio">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-media" aria-hidden="true">
+        <img src="images/catalogo/softgel/img8.jpg" alt="" />
+      </div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="eyebrow">Alvear, Santa Fe</p>
+        <h1 id="hero-title">Divine Nails</h1>
+        <p class="hero-copy">U&ntilde;as prolijas, delicadas y pensadas para tu estilo: soft gel, kapping, semipermanente y esculpidas.</p>
+        <div class="hero-actions" aria-label="Acciones principales">
+          <a class="button button-primary" href="https://wa.me/543412735681?text=Hola%20Divine%20Nails!%20Quiero%20reservar%20un%20turno." target="_blank" rel="noopener">
+            Pedir turno
+          </a>
+          <a class="button button-secondary" href="#trabajos">Ver trabajos</a>
         </div>
-        <div class="card" tabindex="0" onclick='mostrarImagenCarpeta("images/catalogo/kapping", 4, "Diseño Kapping")'>
-          <p>🌸 Kapping 🌸</p>
+      </div>
+      <div class="hero-strip" aria-label="Datos r&aacute;pidos">
+        <span>Atenci&oacute;n personalizada</span>
+        <span>Dise&ntilde;os a medida</span>
+        <span>Reserva por WhatsApp</span>
+      </div>
+    </section>
+
+    <section class="section services-section" id="servicios" aria-labelledby="servicios-title">
+      <div class="section-heading">
+        <p class="eyebrow">Servicios</p>
+        <h2 id="servicios-title">Eleg&iacute; la t&eacute;cnica que va con vos</h2>
+      </div>
+
+      <div class="service-grid">
+        <article class="service-card">
+          <img src="images/catalogo/softgel/img8.jpg" alt="Dise&ntilde;o soft gel de Divine Nails" />
+          <div class="service-card-body">
+            <h3>Soft Gel</h3>
+            <p>Extensiones livianas con terminaci&oacute;n prolija y mucha variedad de dise&ntilde;os.</p>
+            <button class="link-button" type="button" data-gallery="softgel">Ver dise&ntilde;os</button>
+          </div>
+        </article>
+
+        <article class="service-card">
+          <img src="images/catalogo/kapping/img3.jpg" alt="Dise&ntilde;o kapping de Divine Nails" />
+          <div class="service-card-body">
+            <h3>Kapping</h3>
+            <p>Refuerzo sobre la u&ntilde;a natural para sumar duraci&oacute;n sin perder comodidad.</p>
+            <button class="link-button" type="button" data-gallery="kapping">Ver dise&ntilde;os</button>
+          </div>
+        </article>
+
+        <article class="service-card">
+          <img src="images/catalogo/semipermanente/img2.jpg" alt="Dise&ntilde;o semipermanente de Divine Nails" />
+          <div class="service-card-body">
+            <h3>Semipermanente</h3>
+            <p>Color impecable, brillo y terminaci&oacute;n limpia para el d&iacute;a a d&iacute;a.</p>
+            <button class="link-button" type="button" data-gallery="semipermanente">Ver dise&ntilde;os</button>
+          </div>
+        </article>
+
+        <article class="service-card">
+          <img src="images/catalogo/acrilico/img6.jpg" alt="Dise&ntilde;o acr&iacute;lico de Divine Nails" />
+          <div class="service-card-body">
+            <h3>Esculpidas</h3>
+            <p>Largo, estructura y dise&ntilde;o con una presencia m&aacute;s marcada.</p>
+            <button class="link-button" type="button" data-gallery="acrilico">Ver dise&ntilde;os</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section work-section" id="trabajos" aria-labelledby="trabajos-title">
+      <div class="section-heading split-heading">
+        <div>
+          <p class="eyebrow">Portfolio</p>
+          <h2 id="trabajos-title">Trabajos destacados</h2>
         </div>
-        <div class="card" tabindex="0" onclick='mostrarImagenCarpeta("images/catalogo/semipermanente", 3, "Diseño Semipermanente")'>
-          <p>💖 Semipermanente 💖</p>
+        <div class="filter-bar" role="tablist" aria-label="Filtrar trabajos">
+          <button class="filter-button is-active" type="button" data-filter="all" role="tab" aria-selected="true">Todo</button>
+          <button class="filter-button" type="button" data-filter="softgel" role="tab" aria-selected="false">Soft Gel</button>
+          <button class="filter-button" type="button" data-filter="kapping" role="tab" aria-selected="false">Kapping</button>
+          <button class="filter-button" type="button" data-filter="semipermanente" role="tab" aria-selected="false">Semi</button>
+          <button class="filter-button" type="button" data-filter="acrilico" role="tab" aria-selected="false">Acr&iacute;lico</button>
         </div>
-        <div class="card" tabindex="0" onclick='mostrarImagenCarpeta("images/catalogo/acrilico", 7, "Diseño Esculpidas en Acrílico")'>
-          <p>💎 Esculpidas en Acrílico 💎</p>
+      </div>
+
+      <div class="portfolio-grid" aria-live="polite">
+        <button class="portfolio-item tall" type="button" data-gallery="softgel" data-index="6" data-category="softgel">
+          <img src="images/catalogo/softgel/img8.jpg" alt="Soft gel con dise&ntilde;o delicado" />
+          <span>Soft Gel</span>
+        </button>
+        <button class="portfolio-item" type="button" data-gallery="kapping" data-index="1" data-category="kapping">
+          <img src="images/catalogo/kapping/img3.jpg" alt="Kapping con acabado brillante" />
+          <span>Kapping</span>
+        </button>
+        <button class="portfolio-item" type="button" data-gallery="semipermanente" data-index="0" data-category="semipermanente">
+          <img src="images/catalogo/semipermanente/img2.jpg" alt="Semipermanente con detalle prolijo" />
+          <span>Semipermanente</span>
+        </button>
+        <button class="portfolio-item wide" type="button" data-gallery="acrilico" data-index="4" data-category="acrilico">
+          <img src="images/catalogo/acrilico/img6.jpg" alt="Esculpidas en acr&iacute;lico" />
+          <span>Esculpidas</span>
+        </button>
+        <button class="portfolio-item" type="button" data-gallery="softgel" data-index="11" data-category="softgel">
+          <img src="images/catalogo/softgel/img13.jpg" alt="Soft gel con color y brillo" />
+          <span>Soft Gel</span>
+        </button>
+        <button class="portfolio-item" type="button" data-gallery="acrilico" data-index="2" data-category="acrilico">
+          <img src="images/catalogo/acrilico/img4.jpg" alt="Acr&iacute;licas con forma cuidada" />
+          <span>Acr&iacute;lico</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="section booking-section" id="turnos" aria-labelledby="turnos-title">
+      <div class="booking-copy">
+        <p class="eyebrow">Turnos</p>
+        <h2 id="turnos-title">Mandanos tu idea y coordinamos d&iacute;a y horario</h2>
+        <p>Contanos qu&eacute; t&eacute;cnica quer&eacute;s, si ten&eacute;s referencia de dise&ntilde;o y para cu&aacute;ndo necesit&aacute;s el turno.</p>
+      </div>
+      <div class="booking-actions" aria-label="Canales de contacto">
+        <a class="contact-card" href="https://wa.me/543412735681?text=Hola%20Divine%20Nails!%20Quiero%20reservar%20un%20turno." target="_blank" rel="noopener">
+          <span>WhatsApp</span>
+          <strong>341 273 5681</strong>
+        </a>
+        <a class="contact-card" href="https://www.instagram.com/divine_nails.luli" target="_blank" rel="noopener">
+          <span>Instagram</span>
+          <strong>@divine_nails.luli</strong>
+        </a>
+        <div class="contact-card">
+          <span>Ubicaci&oacute;n</span>
+          <strong>Alvear, Santa Fe</strong>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Modal imagen con carrete -->
-  <div id="modalImagen" class="modal" role="dialog" aria-label="Diseño de uñas">
-    <span id="cerrarModalImagen" class="cerrar">✖</span>
-    <div class="modal-contenido">
-      <div class="imagen-wrapper">
-        <img id="imagenModal" src="" alt="Diseño" />
-      </div>
-      <p id="descripcionImagen"></p>
-      <div id="carrusel" class="carrusel"></div>
-    </div>
-  </div>
-
-  <!-- Modal de reserva -->
-  <div id="reservaModal" class="modal" role="dialog" aria-label="Reserva confirmada">
-    <span onclick="cerrarReserva()" class="cerrar">✖</span>
-    <div class="contenido">
-      <p id="mensajeReserva"></p>
-    </div>
-  </div>
-
-  <!-- Mensaje flotante Instagram -->
-  <div id="mensajeIG" class="mensaje-ig">
-    <span id="cerrarMensajeIG" class="cerrar-ig">✖</span>
-    Tocá el botón y mandanos un mensaje por Instagram o WhatsApp. ¡Luli te responde al toque! 💅
-  </div>
-
-  <footer class="footer">
-    <p>📍 Alvear, Santa Fe | 📞 341-273-5681 | 💌 divine.nails@gmail.com</p>
+  <footer class="site-footer">
+    <p>Divine Nails</p>
+    <p>Manicuria y dise&ntilde;o de u&ntilde;as en Alvear, Santa Fe.</p>
   </footer>
+
+  <div class="floating-contact" aria-label="Contacto r&aacute;pido">
+    <a href="https://www.instagram.com/divine_nails.luli" target="_blank" rel="noopener" aria-label="Abrir Instagram">
+      <img src="images/icons/instagram.jpg" alt="" />
+    </a>
+    <a href="https://wa.me/543412735681?text=Hola%20Divine%20Nails!%20Quiero%20reservar%20un%20turno." target="_blank" rel="noopener" aria-label="Abrir WhatsApp">
+      <img src="images/icons/whatsapp.jpg" alt="" />
+    </a>
+  </div>
+
+  <div class="modal" id="galleryModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-panel">
+      <button class="modal-close" type="button" data-close-modal aria-label="Cerrar galer&iacute;a">&times;</button>
+      <div class="modal-main">
+        <button class="modal-nav previous" type="button" data-direction="-1" aria-label="Imagen anterior">&lsaquo;</button>
+        <img id="modalImage" alt="" />
+        <button class="modal-nav next" type="button" data-direction="1" aria-label="Imagen siguiente">&rsaquo;</button>
+      </div>
+      <div class="modal-meta">
+        <div>
+          <p class="eyebrow" id="modalCategory">Galeria</p>
+          <h2 id="modalTitle">Dise&ntilde;o</h2>
+        </div>
+        <p id="modalCounter">1 / 1</p>
+      </div>
+    <div class="thumbnail-row" id="thumbnailRow" aria-label="Miniaturas de la galer&iacute;a"></div>
+    </div>
+  </div>
 </body>
 </html>
-
