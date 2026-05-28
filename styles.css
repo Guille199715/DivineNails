@@ -113,7 +113,8 @@ button {
 .header-action,
 .button,
 .filter-button,
-.link-button {
+.link-button,
+.service-book {
   min-height: 40px;
   display: inline-flex;
   align-items: center;
@@ -150,7 +151,9 @@ button {
 .filter-button:hover,
 .filter-button:focus-visible,
 .link-button:hover,
-.link-button:focus-visible {
+.link-button:focus-visible,
+.service-book:hover,
+.service-book:focus-visible {
   transform: translateY(-1px);
 }
 
@@ -363,6 +366,23 @@ h1 {
   cursor: pointer;
 }
 
+.service-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+}
+
+.service-book {
+  min-height: 36px;
+  padding: 8px 12px;
+  background: var(--ink);
+  color: #fff;
+  border-radius: 6px;
+  font-size: 0.88rem;
+  font-weight: 850;
+}
+
 .filter-bar {
   display: flex;
   flex-wrap: wrap;
@@ -445,6 +465,49 @@ h1 {
 .portfolio-item:focus-visible img {
   transform: scale(1.045);
   filter: saturate(1.04);
+}
+
+.care-section {
+  padding-top: clamp(36px, 6vw, 78px);
+}
+
+.care-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.care-card {
+  min-width: 0;
+  padding: 22px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 16px 36px rgba(35, 26, 22, 0.08);
+}
+
+.care-card span,
+.care-card strong {
+  display: block;
+}
+
+.care-card span {
+  color: var(--rose-dark);
+  font-size: 0.86rem;
+  font-weight: 850;
+}
+
+.care-card strong {
+  margin-top: 8px;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.55rem;
+  line-height: 1.08;
+}
+
+.care-card p {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
 }
 
 .booking-section {
@@ -718,6 +781,10 @@ h1 {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .care-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .split-heading {
     align-items: start;
     flex-direction: column;
@@ -799,12 +866,36 @@ h1 {
   }
 
   .service-grid,
+  .care-grid,
   .portfolio-grid {
     grid-template-columns: 1fr;
   }
 
+  .filter-bar {
+    width: 100%;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    scrollbar-width: thin;
+  }
+
+  .filter-button {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+
+  .service-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .link-button,
+  .service-book {
+    width: 100%;
+  }
+
   .portfolio-grid {
-    grid-auto-rows: 310px;
+    grid-auto-rows: 290px;
   }
 
   .portfolio-item.tall,

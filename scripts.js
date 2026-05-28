@@ -2,35 +2,31 @@ const galleries = {
   softgel: {
     label: "Soft Gel",
     title: "Dise\u00f1os Soft Gel",
-    start: 2,
-    count: 19,
     base: "images/catalogo/softgel",
   },
   kapping: {
     label: "Kapping",
     title: "Dise\u00f1os Kapping",
-    start: 2,
-    count: 4,
     base: "images/catalogo/kapping",
   },
   semipermanente: {
     label: "Semipermanente",
     title: "Dise\u00f1os Semipermanentes",
-    start: 2,
-    count: 3,
     base: "images/catalogo/semipermanente",
   },
   acrilico: {
-    label: "Acr\u00edlico",
+    label: "Esculpidas en Acr\u00edlico",
     title: "Esculpidas en Acr\u00edlico",
-    start: 2,
-    count: 7,
     base: "images/catalogo/acrilico",
   },
 };
 
+const MAX_SCAN_ATTEMPTS = 999;
+
 let activeGallery = null;
 let activeIndex = 0;
+let activeImages = [];
+const galleryCache = new Map();
 
 const modal = document.getElementById("galleryModal");
 const modalImage = document.getElementById("modalImage");
@@ -39,24 +35,46 @@ const modalCategory = document.getElementById("modalCategory");
 const modalCounter = document.getElementById("modalCounter");
 const thumbnailRow = document.getElementById("thumbnailRow");
 
-function getImages(gallery) {
-  const start = gallery.start || 1;
-  const total = gallery.count - start + 1;
-  return Array.from({ length: total }, (_, index) => `${gallery.base}/img${index + start}.jpg`);
+function imageExists(src) {
+  return new Promise((resolve) => {
+    const image = new Image();
+    image.onload = () => resolve(true);
+    image.onerror = () => resolve(false);
+    image.src = src;
+  });
+}
+
+async function getImages(galleryKey) {
+  if (galleryCache.has(galleryKey)) {
+    return galleryCache.get(galleryKey);
+  }
+
+  const gallery = galleries[galleryKey];
+  const images = [];
+
+  for (let number = 1; number <= MAX_SCAN_ATTEMPTS; number += 1) {
+    const src = `${gallery.base}/${number}.jpg`;
+    const exists = await imageExists(src);
+
+    if (!exists) break;
+    images.push(src);
+  }
+
+  galleryCache.set(galleryKey, images);
+  return images;
 }
 
 function setModalImage(index) {
-  if (!activeGallery) return;
+  if (!activeGallery || activeImages.length === 0) return;
 
-  const images = getImages(activeGallery);
-  activeIndex = (index + images.length) % images.length;
-  const currentSrc = images[activeIndex];
+  activeIndex = (index + activeImages.length) % activeImages.length;
+  const currentSrc = activeImages[activeIndex];
 
   modalImage.src = currentSrc;
   modalImage.alt = `${activeGallery.label} ${activeIndex + 1}`;
   modalTitle.textContent = activeGallery.title;
   modalCategory.textContent = activeGallery.label;
-  modalCounter.textContent = `${activeIndex + 1} / ${images.length}`;
+  modalCounter.textContent = `${activeIndex + 1} / ${activeImages.length}`;
 
   thumbnailRow.querySelectorAll(".thumbnail-button").forEach((button, buttonIndex) => {
     const isActive = buttonIndex === activeIndex;
@@ -69,7 +87,7 @@ function buildThumbnails() {
   if (!activeGallery) return;
 
   thumbnailRow.innerHTML = "";
-  getImages(activeGallery).forEach((src, index) => {
+  activeImages.forEach((src, index) => {
     const button = document.createElement("button");
     const image = document.createElement("img");
 
@@ -86,16 +104,30 @@ function buildThumbnails() {
   });
 }
 
-function openGallery(galleryKey, index = 0) {
+async function openGallery(galleryKey, index = 0) {
   activeGallery = galleries[galleryKey];
   if (!activeGallery) return;
 
-  buildThumbnails();
-  setModalImage(index);
+  activeImages = [];
+  thumbnailRow.innerHTML = "";
+  modalImage.removeAttribute("src");
+  modalTitle.textContent = activeGallery.title;
+  modalCategory.textContent = activeGallery.label;
+  modalCounter.textContent = "Cargando...";
 
   modal.classList.add("is-open");
   modal.setAttribute("aria-hidden", "false");
   document.body.style.overflow = "hidden";
+
+  activeImages = await getImages(galleryKey);
+
+  if (activeImages.length === 0) {
+    modalCounter.textContent = "Sin im\u00e1genes";
+    return;
+  }
+
+  buildThumbnails();
+  setModalImage(index);
 }
 
 function closeGallery() {
