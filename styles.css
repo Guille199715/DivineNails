@@ -326,6 +326,8 @@ h1 {
 
 .service-card {
   min-width: 0;
+  display: grid;
+  grid-template-rows: auto 1fr;
   overflow: hidden;
   background: var(--surface);
   border: 1px solid var(--line);
@@ -341,12 +343,14 @@ h1 {
 
 .service-card-body {
   display: grid;
+  grid-template-rows: auto 1fr auto;
   gap: 12px;
   padding: 18px;
 }
 
 .service-card h3 {
-  font-size: 1.2rem;
+  font-size: 1.12rem;
+  line-height: 1.16;
 }
 
 .service-card p {
@@ -356,31 +360,36 @@ h1 {
 }
 
 .link-button {
-  width: max-content;
+  width: 100%;
+  min-width: 0;
   min-height: 36px;
   padding: 0;
   border: 0;
   color: var(--rose-dark);
   background: transparent;
   font-weight: 800;
+  justify-content: flex-start;
+  line-height: 1.15;
   cursor: pointer;
 }
 
 .service-actions {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
-  gap: 10px 14px;
+  gap: 10px;
 }
 
 .service-book {
   min-height: 36px;
-  padding: 8px 12px;
+  padding: 8px 11px;
   background: var(--ink);
   color: #fff;
   border-radius: 6px;
-  font-size: 0.88rem;
+  font-size: 0.84rem;
   font-weight: 850;
+  line-height: 1.1;
+  white-space: nowrap;
 }
 
 .filter-bar {
@@ -886,7 +895,7 @@ h1 {
 
   .service-actions {
     align-items: stretch;
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
 
   .link-button,
